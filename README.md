@@ -6,11 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+![alt text](./src/assets/NativeAngular_browser.png)
+
 ## Running Native Mobile App (Android)
 Run `tns run android --bundle`
 To Deploy on Emulator need to have a [full setup checkout](https://docs.nativescript.org/angular/start/cli-basics#full-setup-using-run)
 
 Else install Nativescript Playground & Preview App's from playstore checkout [Quick setup](https://docs.nativescript.org/angular/start/cli-basics#quick-setup-using-preview)
+
+![alt text](./src/assets/NativeAngular_Android_List.jpeg)
+![alt text](./src/assets/NativeAngular_Android_Create.jpeg)
 
 ## Code scaffolding
 
