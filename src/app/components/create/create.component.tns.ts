@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { RouterExtensions } from "nativescript-angular/router";
 import * as ApplicationSettings from "tns-core-modules/application-settings";
 
 @Component({
@@ -13,7 +14,7 @@ export class CreateComponent implements OnInit {
     public firstname: string;
     public lastname: string;
 
-    constructor(private location: Location) {
+    constructor(private location: Location, private routerExtensions: RouterExtensions) {
         this.location = location;
         this.personList = JSON.parse(ApplicationSettings.getString("people", "[]"));
         this.firstname = "";
@@ -27,6 +28,7 @@ export class CreateComponent implements OnInit {
         this.personList.push({firstname: this.firstname, lastname: this.lastname});
         ApplicationSettings.setString("people", JSON.stringify(this.personList));
         this.location.back();
+        this.routerExtensions.navigate(["/list"]);
     }
 }
 

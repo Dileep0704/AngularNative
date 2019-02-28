@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { getRootView } from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as ApplicationSettings from "tns-core-modules/application-settings";
 
 @Component({
@@ -23,7 +25,12 @@ export class ListComponent implements OnInit {
   ngOnInit() { }
 
   create() {
-    this.router.navigate(["/create"]);
+    this.router.navigate(["/featured"]);
   }
+
+  onDrawerButtonTap(): void {
+		const sideDrawer = <RadSideDrawer>getRootView();
+		sideDrawer.showDrawer();
+	}
 
 }

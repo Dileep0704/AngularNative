@@ -27,4 +27,9 @@ export class AppComponent {
     this.routerExtensions.navigate(["/search"], { clearHistory: true });
     this.sideDrawerComponent.sideDrawer.closeDrawer();
   }
+
+  navigateToList(): void {
+    this.routerExtensions.navigate(["/list"], { clearHistory: true });
+    this.sideDrawerComponent.sideDrawer.closeDrawer();
+  }
 }

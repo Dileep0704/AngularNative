@@ -1,8 +1,9 @@
-<ActionBar title="NativeScript - Create">
+<!-- <ActionBar title="NativeScript - Create">
   <NavigationButton text="Back" ios.position="left"></NavigationButton>
   <ActionItem text="Save" (tap)="save()" ios.position="right"></ActionItem>
-</ActionBar>
+</ActionBar> -->
 <StackLayout>
   <TextField hint="First Name" [(ngModel)]="firstname"></TextField>
   <TextField hint="Last Name" [(ngModel)]="lastname"></TextField>
+  <Button class="btn btn-primary" text="Save" (tap)="save()"></Button>
 </StackLayout>

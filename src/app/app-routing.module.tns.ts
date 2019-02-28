@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: "browse", component: BrowseComponent },
   { path: "category", component: CategoryComponent },
   { path: "search", component: SearchComponent },
+  { path: "list", component: ListComponent },
 ];
 
 @NgModule({

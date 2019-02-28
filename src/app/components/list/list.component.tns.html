@@ -1,10 +1,18 @@
-<ActionBar title="NativeScript - List">
+<!-- <ActionBar title="List">
   <ActionItem text="Add" (tap)="create()" ios.position="right"></ActionItem>
+</ActionBar> -->
+
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://navigation/menu" android:visibility="collapsed" text="Add" (tap)="create()" ios.position="left">
+  </ActionItem>
+  <Label class="action-bar-title" text="List"></Label>
 </ActionBar>
+
 <GridLayout>
   <ListView [items]="personList">
-      <ng-template let-item="item">
-          <Label [text]="item.firstname + ' ' + item.lastname"></Label>
-      </ng-template>
+    <ng-template let-item="item">
+      <Label [text]="item.firstname + ' ' + item.lastname"></Label>
+    </ng-template>
   </ListView>
 </GridLayout>
