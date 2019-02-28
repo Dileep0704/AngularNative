@@ -57,6 +57,9 @@
     "typescript": "~3.2.2"
   },
   "nativescript": {
-    "id": "org.nativescript.ngsample"
+    "id": "org.nativescript.ngsample",
+    "tns-android": {
+      "version": "5.2.1"
+    }
   }
 }

@@ -11,11 +11,11 @@ import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthenticateComponent } from './components/authenticate/authenticate.component';
-import { FeaturedComponent } from './components/featured/featured.component';
-import { ItemComponent } from './components/item/item.component';
-import { BrowseComponent } from './components/browse/browse.component';
-import { CategoryComponent } from './components/category/category.component';
-import { SearchComponent } from './components/search/search.component';
+// import { FeaturedComponent } from './components/featured/featured.component';
+// import { ItemComponent } from './components/item/item.component';
+// import { BrowseComponent } from './components/browse/browse.component';
+// import { CategoryComponent } from './components/category/category.component';
+// import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +24,7 @@ import { SearchComponent } from './components/search/search.component';
     ListComponent,
     CreateComponent,
     LoginComponent,
-    AuthenticateComponent,
-    FeaturedComponent,
-    ItemComponent,
-    BrowseComponent,
-    CategoryComponent,
-    SearchComponent
+    AuthenticateComponent
   ],
   imports: [
     BrowserModule,
