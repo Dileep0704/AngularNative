@@ -25,6 +25,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Debug
+
+To debug run `tns debug android --bundle` which will generate a link some thing like `chrome-devtools://devtools/bundled/inspector.html?experiments=true&ws=localhost:40000`, navigate to the link and put debug points. On navigation in the android app it will hit the debugger.
+![alt text](./src/assets/NativeAngular_Android_debug.jpeg)
+
+Reference: 
+1) [Debugging in chrome](https://docs.nativescript.org/tooling/debugging/chrome-devtools)
+2) [Debugging in Visual studio](https://docs.nativescript.org/tooling/visual-studio-code-extension)
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
