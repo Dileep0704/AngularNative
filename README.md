@@ -14,8 +14,8 @@ To Deploy on Emulator need to have a [full setup checkout](https://docs.nativesc
 
 Else install Nativescript Playground & Preview App's from playstore checkout [Quick setup](https://docs.nativescript.org/angular/start/cli-basics#quick-setup-using-preview)
 
-![alt text](./src/assets/NativeAngular_Android_List.jpeg)
-![alt text](./src/assets/NativeAngular_Android_Create.jpeg)
+![alt text](./src/assets/NativeAngular_Android_List.png)
+![alt text](./src/assets/NativeAngular_Android_Create.png)
 
 ## Code scaffolding
 
