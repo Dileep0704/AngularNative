@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "android": "tns run android --bundle",
+    "remove-android-platform": "tns platform remove android",
+    "preview": "tns preview --bundle",
     "ios": "tns run ios --bundle",
     "ng": "ng",
     "start": "ng serve",
@@ -24,6 +26,7 @@
     "@nativescript/schematics": "^0.5.0",
     "core-js": "^2.5.4",
     "nativescript-angular": "~7.1.0",
+    "nativescript-barcodescanner": "^3.1.1",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-toast": "^2.0.0",
     "nativescript-ui-sidedrawer": "^5.1.0",
