@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { getRootView } from "tns-core-modules/application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { BarcodeScanner } from 'nativescript-barcodescanner';
+import { alert } from 'tns-core-modules/ui/dialogs';
 
 @Component({
 	selector: "Featured",
@@ -39,11 +40,12 @@ export class FeaturedComponent implements OnInit {
 			"openSettingsIfPermissionWasPreviouslyDenied": true // On iOS you can send the user to the settings app if access was previously denied
 		}).then((result) => {
       // Note that this Promise is never invoked when a 'continuousScanCallback' function is provided
-      alert({
-        title: "Scan result",
-        message: "Format: " + result.format + ",\nValue: " + result.text,
-        okButtonText: "OK"
-      });
+			alert({
+				title: "Scan result",
+				message: "Format: " + result.format + ",\nValue: " + result.text,
+				okButtonText: "OK"
+			})
+			console.log("Format: " + result.format + ",\nValue: " + result.text);
     }, (errorMessage) => {
       console.log("No scan. " + errorMessage);
     });

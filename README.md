@@ -34,6 +34,19 @@ Reference:
 1) [Debugging in chrome](https://docs.nativescript.org/tooling/debugging/chrome-devtools)
 2) [Debugging in Visual studio](https://docs.nativescript.org/tooling/visual-studio-code-extension)
 
+## Run App on Device & Debug
+
+1) [Install Sidekick](https://docs.nativescript.org/angular/sidekick/intro/installation)
+2) Enable `Developer options` in the device then enable `USB debugging`,`Install via USB`
+3) Run the app on connected device by clicking `Run on Device`
+4) To debug select `sourceMap` at Webpack and check `Start Debugger` then click on Debugg button at connected Devices list, which will open up a window that allowss you to put breakpoints.
+![alt text](./src/assets/Run_On_Device_sidekick.png)
+![alt text](./src/assets/SideKick_debug.png)
+
+Reference:
+1) Run on Device - Sidekick(https://docs.nativescript.org/angular/sidekick/getting-started/run-on-device)
+2) Debug on Device - SideKick(https://docs.nativescript.org/angular/sidekick/user-guide/run-app/debug-app)
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
