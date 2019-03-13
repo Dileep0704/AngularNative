@@ -4,9 +4,7 @@
       ios.position="left">
   </ActionItem>
   <Label class="action-bar-title" text="Featured"></Label>
-  <StackLayout>
-    <Button class="action-bar-title" text="Scan Barcode" (tap)="scanBarcode()" ios.position="right"></Button>
-  </StackLayout>
+  <app-scanner></app-scanner>
 </ActionBar>
 
 <ScrollView class="page">

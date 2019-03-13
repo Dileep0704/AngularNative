@@ -21,6 +21,7 @@ import { ItemComponent } from './components/item/item.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
+import { ScannerComponent } from './components/scanner/scanner.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchComponent } from './components/search/search.component';
     BrowseComponent,
     CategoryComponent,
     SearchComponent,
+    ScannerComponent,
   ],
   imports: [
     NativeScriptModule,
