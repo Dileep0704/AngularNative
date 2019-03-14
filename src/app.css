@@ -12,6 +12,7 @@ refer to http://docs.nativescript.org/ui/theme.
 @import '~nativescript-theme-core/css/core.dark.css';
 
 /* Font awsome icons */
+/* https://medium.com/@JCAguilera/fontawesome-5-and-nativescript-22653f2b3bac */
 .far {
   font-family: Font Awesome 5 Free, fa-regular-400;
   font-weight: 400; 

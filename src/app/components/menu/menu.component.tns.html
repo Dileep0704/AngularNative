@@ -1,0 +1,8 @@
+<ListView [items]="restaurantCatalog" class="list-group">
+  <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+    <GridLayout columns="auto, auto">
+      <Label col="0" [text]="item.id" nsRouterLink="/detail/{{item.id}}"></Label>
+      <Label col="1" [text]="item.name" nsRouterLink="/detail/{{item.id}}"></Label>
+    </GridLayout>
+  </ng-template>
+</ListView>
