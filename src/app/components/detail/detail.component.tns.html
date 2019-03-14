@@ -1,0 +1,17 @@
+<!-- <GridLayout class="container">
+  <StackLayout *ngIf="item">
+    <Label class="main-name" [text]="item.name"></Label>
+
+    <GridLayout class="grid" rows="auto auto" columns="auto, *">
+      <Label row="0" col="0" class="circle" [text]="item.id"></Label>
+      <TextField class="name" row="0" col="1" [(ngModel)]="item.name" hint="name"></TextField>
+    </GridLayout>
+  </StackLayout>
+</GridLayout> -->
+
+<FlexboxLayout>
+  <StackLayout *ngIf="item">
+    <TextField [text]="item.id"></TextField>
+    <TextField [text]="item.name"></TextField>
+  </StackLayout>
+</FlexboxLayout>

@@ -23,6 +23,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MenuComponent } from './components/menu/menu.component';
     SearchComponent,
     ScannerComponent,
     MenuComponent,
+    DetailComponent,
   ],
   imports: [
     NativeScriptModule,

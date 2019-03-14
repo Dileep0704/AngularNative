@@ -11,8 +11,7 @@ import { ItemComponent } from './components/item/item.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
-
-
+import { DetailComponent } from './components/detail/detail.component';
 
 const routes: Routes = [
   // { path: "", component: LoginComponent },
@@ -26,6 +25,7 @@ const routes: Routes = [
   { path: "category", component: CategoryComponent },
   { path: "search", component: SearchComponent },
   { path: "list", component: ListComponent },
+  { path: "detail/:id", component: DetailComponent }
 ];
 
 @NgModule({
