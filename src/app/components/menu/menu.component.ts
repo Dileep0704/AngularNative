@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { skip } from 'rxjs/operators';
-import { ScannerService } from '../../shared/scanner/scanner.service';
+import { MenuService } from '../../shared/menu/menu.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,10 +10,10 @@ import { ScannerService } from '../../shared/scanner/scanner.service';
 export class MenuComponent implements OnInit {
 
   restaurantCatalog: any[];
-  constructor(private scannerService:ScannerService) { }
+  constructor(private menuService:MenuService) { }
 
   ngOnInit() {
-    this.scannerService.restaurantCatalog.pipe(skip(1)).subscribe((menu)=> {
+    this.menuService.restaurantCatalog.pipe(skip(1)).subscribe((menu)=> {
       this.restaurantCatalog = menu
     })
   }

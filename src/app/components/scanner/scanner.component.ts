@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from 'nativescript-barcodescanner';
 import { alert } from 'tns-core-modules/ui/dialogs';
-import { ScannerService } from '../../shared/scanner/scanner.service';
+import { MenuService } from '../../shared/menu/menu.service';
 
 @Component({
   selector: 'app-scanner',
@@ -10,7 +10,7 @@ import { ScannerService } from '../../shared/scanner/scanner.service';
 })
 export class ScannerComponent implements OnInit {
 
-  constructor(private barcodeScanner: BarcodeScanner, private scannerService: ScannerService) { }
+  constructor(private barcodeScanner: BarcodeScanner, private menuService: MenuService) { }
 
   ngOnInit() {
   }
@@ -39,10 +39,10 @@ export class ScannerComponent implements OnInit {
 			// })
 			
 			console.log("Format: " + result.format + ",\nValue: " + result.text);
-			this.scannerService.getMenu(result.text)
+			this.menuService.getMenu(result.text)
     }, (errorMessage) => {
 			console.log("No scan. " + errorMessage);
-			this.scannerService.getMenu("text");
+			this.menuService.getMenu("text");
     });
 	}
 }
