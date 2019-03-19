@@ -12,13 +12,16 @@ import { BrowseComponent } from './components/browse/browse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { StateService } from './shared/state.service';
 
 const routes: Routes = [
   // { path: "", component: LoginComponent },
   // { path: "authenticated", component: AuthenticateComponent }
   // { path: "", component: ListComponent },
   // { path: "create", component: CreateComponent }
-  { path: "", redirectTo: "/featured", pathMatch: "full" },
+  // { path: "", redirectTo: StateService.isUserLoggedIn() ? "/featured" : "/login", pathMatch: "full" },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "login", component: LoginComponent },
   { path: "featured", component: FeaturedComponent },
   { path: "item", component: ItemComponent },
   { path: "browse", component: BrowseComponent },
