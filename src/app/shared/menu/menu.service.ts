@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ScannerConfig } from "../scanner/scanner.config";
+import { Product } from '../../model/product.model';
 
 import AppConfig from "../app.config";
 
@@ -10,16 +11,16 @@ import AppConfig from "../app.config";
 })
 export class MenuService {
 
-  menu;
-  restaurantCatalog: BehaviorSubject<any>;
+  menu: Product[];
+  restaurantCatalog: BehaviorSubject<Product[]>;
   constructor(private http: HttpClient) { 
-    this.restaurantCatalog = new BehaviorSubject<any>({});
+    this.restaurantCatalog = new BehaviorSubject<Product[]>([]);
   }
 
   getMenu(id) {
     id = 5
     this.http.get(AppConfig.baseUrl + `api/merchants/${id}/menu/`)
-    .subscribe((menu) => {
+    .subscribe((menu: Product[]) => {
       this.menu = menu
       this.restaurantCatalog.next(menu);
     })
