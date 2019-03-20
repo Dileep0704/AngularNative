@@ -11,7 +11,8 @@
 
 <FlexboxLayout>
   <StackLayout *ngIf="item">
-    <TextField [text]="item.id"></TextField>
     <TextField [text]="item.name"></TextField>
+    <TextField [text]="item.cost"></TextField>
+    <TextField [text]="item.mealType"></TextField>
   </StackLayout>
 </FlexboxLayout>
