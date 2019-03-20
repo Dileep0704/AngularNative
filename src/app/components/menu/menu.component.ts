@@ -19,4 +19,18 @@ export class MenuComponent implements OnInit {
     })
   }
 
+  add(item: Product) {
+    if(item.numberInCart)
+      item.numberInCart += 1
+    else
+      item.numberInCart = 1
+  }
+
+  remove(item: Product) {
+    if(item.numberInCart)
+      item.numberInCart -= 1
+    else
+      item.numberInCart = 0
+  }
+
 }

@@ -14,4 +14,5 @@ export class Product {
   createdBy: string;
   modifiedDate: string;
   modifiedBy: string;
+  numberInCart: number;
 }

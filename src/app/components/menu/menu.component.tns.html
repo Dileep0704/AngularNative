@@ -1,8 +1,16 @@
 <ListView [items]="restaurantCatalog" class="list-group">
   <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-    <GridLayout columns="auto, auto" class="p-15" style="background:white">
+    <!-- <GridLayout columns="auto, auto" class="p-15" style="background:white">
       <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
       <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
+    </GridLayout> -->
+    <GridLayout columns="auto, auto, auto, auto, auto" class="p-15" style="background:white">
+      <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
+      <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
+
+      <Button col="2" (tap)="remove(item)"></Button>
+      <Label col="3" [text]="item.numberInCart"></Label>
+      <Button col="4" (tap)="add(item)"></Button>
     </GridLayout>
   </ng-template>
 </ListView>
