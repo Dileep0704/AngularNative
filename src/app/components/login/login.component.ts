@@ -10,6 +10,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 import { User } from "../../shared/user/user.model";
 import { UserService } from '../../shared/user/user.service';
+import { StateService } from '../../shared/state.service';
 
 @Component({
   selector: 'app-login',
@@ -21,11 +22,13 @@ export class LoginComponent implements OnInit {
   isLoggingIn = true;
   user: User;
   processing = false;
+  isMerchant = false;
   @ViewChild("password") password: ElementRef;
   @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
   constructor(private page: Page, 
-    private userService: UserService, 
+    private userService: UserService,
+    private stateService: StateService, 
     private routerExtensions: RouterExtensions
   ) {
     this.page.actionBarHidden = true;
@@ -61,11 +64,14 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.user)
-      .subscribe(() => {
+      .subscribe((isValidUser) => {
         this.processing = false;
-        this.routerExtensions.navigate(["/featured"], { clearHistory: true });
+        isValidUser && this.stateService._loggedInUser.next(this.user)
+        isValidUser && this.routerExtensions.navigate(["/featured"], { clearHistory: true });
+        !isValidUser && this.alert("Not a valid user");
       },
       error => {
+        console.log(error)
         this.processing = false;
         console.log("Not a valid user")
         this.alert("Unfortunately we could not find your account.");
@@ -77,8 +83,10 @@ export class LoginComponent implements OnInit {
       this.alert("Your passwords do not match.");
       return;
     }
+    this.user.role = this.isMerchant ? "merchants" : "users"
     this.userService.register(this.user)
-      .subscribe(() => {
+      .subscribe((user) => {
+        console.log(user)
         this.processing = false;
         this.alert("Your account was successfully created.");
         this.isLoggingIn = true;

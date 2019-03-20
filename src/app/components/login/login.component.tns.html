@@ -22,7 +22,7 @@
     <Label class="header" text="APP NAME"></Label>
 
     <PreviousNextView>
-      <GridLayout rows="auto, auto, auto">
+      <GridLayout rows="auto, auto, auto, auto">
         <StackLayout row="0" class="input-field">
           <TextField class="input" hint="Email" [isEnabled]="!processing" keyboardType="email" autocorrect="false" autocapitalizationType="none"
             [(ngModel)]="user.email" returnKeyType="next" (returnPress)="focusPassword()"></TextField>
@@ -41,7 +41,13 @@
           <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 
-        <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
+        <StackLayout row="3" *ngIf="!isLoggingIn" class="input-field">
+          <Span [text]="Merchant"></Span>
+          <Switch ngChecked="isMerchant"></Switch>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+
+        <ActivityIndicator rowSpan="4" [busy]="processing"></ActivityIndicator>
       </GridLayout>
     </PreviousNextView>
 

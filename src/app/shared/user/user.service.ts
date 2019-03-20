@@ -18,7 +18,7 @@ export class UserService {
   }
 
   register(user: User) {
-    return this.http.post(AppConfig.baseUrl + "api/users/create", { username: user.email, password: user.password })
+    return this.http.post(AppConfig.baseUrl + `api/${user.role}/create`, { username: user.email, password: user.password })
   }
 
   login(user: User) {

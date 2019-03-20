@@ -13,6 +13,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { StateService } from './shared/state.service';
+import { AuthGuardService } from "./shared/auth-guard.service";
 
 const routes: Routes = [
   // { path: "", component: LoginComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
   // { path: "", redirectTo: StateService.isUserLoggedIn() ? "/featured" : "/login", pathMatch: "full" },
   { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
-  { path: "featured", component: FeaturedComponent },
+  { path: "featured", component: FeaturedComponent, canActivate: [AuthGuardService] },
   { path: "item", component: ItemComponent },
   { path: "browse", component: BrowseComponent },
   { path: "category", component: CategoryComponent },
