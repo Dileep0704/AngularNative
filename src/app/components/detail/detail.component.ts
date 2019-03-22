@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../../shared/menu/menu.service';
+import { getRootView } from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
   selector: 'app-detail',
@@ -18,6 +20,11 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     this.getItemDetails();
+  }
+
+  onDrawerButtonTap(): void {
+		const sideDrawer = <RadSideDrawer>getRootView();
+		sideDrawer.showDrawer();
   }
 
   getItemDetails(): void {

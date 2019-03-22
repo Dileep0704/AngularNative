@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../shared/cart/cart.service';
+import { getRootView } from "tns-core-modules/application";
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 
 @Component({
   selector: 'app-cart',
@@ -17,6 +19,11 @@ export class CartComponent implements OnInit {
     })
   }
 
+  onDrawerButtonTap(): void {
+		const sideDrawer = <RadSideDrawer>getRootView();
+		sideDrawer.showDrawer();
+  }
+  
   ngOnInit() {
   }
 

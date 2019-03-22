@@ -1,3 +1,11 @@
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://navigation/menu" android:visibility="collapsed"
+      ios.position="left">
+  </ActionItem>
+  <Label class="action-bar-title" text="Cart"></Label>
+</ActionBar>
+
 <StackLayout class="sidedrawer-content">
 
   <GridLayout class="sidedrawer-list-item" rows="*" columns="*, *">

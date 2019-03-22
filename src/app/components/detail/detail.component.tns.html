@@ -8,7 +8,13 @@
     </GridLayout>
   </StackLayout>
 </GridLayout> -->
-
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://navigation/menu" android:visibility="collapsed"
+      ios.position="left">
+  </ActionItem>
+  <Label class="action-bar-title" text="Detail"></Label>
+</ActionBar>
 <FlexboxLayout>
   <StackLayout *ngIf="item">
     <TextField [text]="item.name"></TextField>
