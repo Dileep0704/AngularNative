@@ -4,7 +4,10 @@
       ios.position="left">
   </ActionItem>
   <Label class="action-bar-title" text="Featured"></Label>
-  <app-scanner></app-scanner>
+  <StackLayout orientation="horizontal" class="action-bar-title pull-right">
+    <Button class="fas" text="&#xf07a; Cart"  [nsRouterLink]="['/cart']" style="color: red"></Button>
+    <app-scanner></app-scanner>
+  </StackLayout>
 </ActionBar>
 
 <!-- <ScrollView class="page">

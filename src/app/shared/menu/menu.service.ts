@@ -18,7 +18,7 @@ export class MenuService {
   }
 
   getMenu(id) {
-    id = 5
+    id=2
     this.http.get(AppConfig.baseUrl + `api/merchants/${id}/menu/`)
     .subscribe((menu: Product[]) => {
       this.menu = menu

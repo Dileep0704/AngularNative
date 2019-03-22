@@ -4,13 +4,13 @@
       <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
       <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
     </GridLayout> -->
-    <GridLayout columns="auto, auto, auto, auto, auto" class="p-15" style="background:white">
+    <GridLayout columns="auto, auto, *, *, *" class="p-15" style="background:white">
       <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
       <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
 
-      <Button col="2" (tap)="remove(item)"></Button>
-      <Label col="3" [text]="item.numberInCart"></Label>
-      <Button col="4" (tap)="add(item)"></Button>
+      <Button col="2" class="fas" text="&#xf068;" (tap)="remove(item)"></Button>
+      <Label *ngIf="(itemsInCart | json) != '{}' && itemsInCart.hasOwnProperty(item.itemId)" col="3" [text]="itemsInCart[item.itemId].numberInCart"></Label>
+      <Button col="4" class="fas" text="&#xf067;" (tap)="add(item)"></Button>
     </GridLayout>
   </ng-template>
 </ListView>

@@ -12,6 +12,7 @@ import { BrowseComponent } from './components/browse/browse.component';
 import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { CartComponent } from './components/cart/cart.component';
 import { StateService } from './shared/state.service';
 import { AuthGuardService } from "./shared/auth-guard.service";
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: "category", component: CategoryComponent },
   { path: "search", component: SearchComponent },
   { path: "list", component: ListComponent },
+  { path: "cart", component: CartComponent },
   { path: "detail/:id", component: DetailComponent }
 ];
 

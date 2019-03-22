@@ -1,0 +1,18 @@
+<StackLayout class="sidedrawer-content">
+
+  <GridLayout class="sidedrawer-list-item" rows="*" columns="*, *">
+    <Label row="0" col="0" text="Total"></Label>
+    <Label row="0" col="1" [text]="cartPrice"></Label>
+  </GridLayout>
+
+  <ListView [items]="itemsInCart | values" class="list-group">
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+      <GridLayout columns="auto, *, *" class="p-15" style="background:white">
+        <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
+        <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
+        <Label col="2" [text]="item.numberInCart" nsRouterLink="/detail/{{item.itemId}}"></Label>  
+      </GridLayout>
+    </ng-template>
+  </ListView>
+
+</StackLayout>

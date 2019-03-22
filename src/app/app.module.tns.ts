@@ -24,6 +24,8 @@ import { SearchComponent } from './components/search/search.component';
 import { ScannerComponent } from './components/scanner/scanner.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { DetailComponent } from './components/detail/detail.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ValuesPipe } from './shared/filter/value.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { DetailComponent } from './components/detail/detail.component';
     ScannerComponent,
     MenuComponent,
     DetailComponent,
+    CartComponent,
+    ValuesPipe
   ],
   imports: [
     NativeScriptModule,

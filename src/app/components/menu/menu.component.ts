@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { skip } from 'rxjs/operators';
 import { MenuService } from '../../shared/menu/menu.service';
+import { CartService } from '../../shared/cart/cart.service';
 import { Product } from '../../model/product.model';
 
 @Component({
@@ -8,10 +9,15 @@ import { Product } from '../../model/product.model';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, DoCheck {
 
   restaurantCatalog: Product[];
-  constructor(private menuService:MenuService) { }
+  itemsInCart = {};
+  olditemsInCart = {}
+  constructor(private menuService:MenuService,
+    private cartService:CartService) { 
+      this.itemsInCart = cartService.itemsInCart;
+    }
 
   ngOnInit() {
     this.menuService.restaurantCatalog.pipe(skip(1)).subscribe((menu: Product[])=> {
@@ -20,17 +26,17 @@ export class MenuComponent implements OnInit {
   }
 
   add(item: Product) {
-    if(item.numberInCart)
-      item.numberInCart += 1
-    else
-      item.numberInCart = 1
+    this.cartService.addToCart.next(item)
   }
 
   remove(item: Product) {
-    if(item.numberInCart)
-      item.numberInCart -= 1
-    else
-      item.numberInCart = 0
+    this.cartService.removeFromCart.next(item)
+  }
+
+  ngDoCheck(){
+    if (JSON.stringify(this.olditemsInCart) !== JSON.stringify(this.itemsInCart)) {
+      this.olditemsInCart = this.itemsInCart;
+    }
   }
 
 }
