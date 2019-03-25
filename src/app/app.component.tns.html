@@ -9,8 +9,8 @@
   <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
     <StackLayout row="0" class="sidedrawer-header">
       <Label class="sidedrawer-header-image fas" text="&#xf2bd;"></Label>
-      <Label class="sidedrawer-header-brand" text="User Name"></Label>
-      <Label class="footnote" text="username@mail.com"></Label>
+      <Label class="sidedrawer-header-brand" [text]="stateService.loggedInUser.email"></Label>
+      <Label class="footnote" [text]="stateService.loggedInUser.role"></Label>
     </StackLayout>
 
     <ScrollView row="1">

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { RouterExtensions } from "nativescript-angular/router";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
-
+import { StateService } from './shared/state.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,11 @@ import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 export class AppComponent {
   @ViewChild(RadSideDrawerComponent) sideDrawerComponent: RadSideDrawerComponent;
 
-  constructor(private routerExtensions: RouterExtensions) { }
+  state;
+  constructor(private routerExtensions: RouterExtensions,
+    private stateService: StateService) { 
+      this.stateService = stateService
+    }
 
   navigateToFeatured(): void {
     this.routerExtensions.navigate(["/featured"], { clearHistory: true });
