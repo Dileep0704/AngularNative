@@ -1,10 +1,40 @@
 <ListView [items]="restaurantCatalog" class="list-group">
   <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+
+    <StackLayout nsRouterLink="/detail/{{item.itemId}}">
+      <GridLayout columns="auto, *, auto, *" rows="auto" width="100%" height="auto" class="owe-main-info" verticalAlignment="top">
+        <Image row="0" col="0" src="~/assets/food-and-beverage-category.png" class="product-icon"></Image>
+        <StackLayout row="0" col="1" orientation="vertical" class="menu-container">
+          <Label class="product-title" [text]="item.name"></Label>
+          <GridLayout columns="auto,auto,auto,auto" rows="auto" width="100%">
+            <Label [text]="item.description" row="0" col="0"></Label>
+            <Label text=" ;" row="0" col="1"></Label>
+            <Label [text]="item.category" row="0" col="2"></Label>
+            <Label text="" row="0" col="3"></Label>
+          </GridLayout>
+        </StackLayout>
+        <Label verticalAlignment="top" row="0" col="2" [text]="item.cost" class="pay-amount"></Label>
+        <StackLayout orientation="horizontal" row="0" col="3">
+          <Button class="fas" text="&#xf068;" (tap)="remove(item)"></Button>
+          <Label *ngIf="(itemsInCart | json) != '{}' && itemsInCart.hasOwnProperty(item.itemId); else showZero" col="3" [text]="itemsInCart[item.itemId].numberInCart"></Label>
+          <ng-template #showZero> <Label col="3" text="0"></Label> </ng-template>
+          <Button class="fas" text="&#xf067;" (tap)="add(item)"></Button>
+        </StackLayout>
+      </GridLayout>
+      <Label class="divider" text=""></Label>
+    </StackLayout>
+
+  </ng-template>
+</ListView>
+
+
+<!-- <ListView [items]="restaurantCatalog" class="list-group">
+  <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even"> -->
     <!-- <GridLayout columns="auto, auto" class="p-15" style="background:white">
       <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
       <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
     </GridLayout> -->
-    <GridLayout columns="auto, auto, *, *, *" class="p-15" style="background:white">
+    <!-- <GridLayout columns="auto, auto, *, *, *" class="p-15" style="background:white">
       <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
       <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
 
@@ -13,4 +43,4 @@
       <Button col="4" class="fas" text="&#xf067;" (tap)="add(item)"></Button>
     </GridLayout>
   </ng-template>
-</ListView>
+</ListView> -->
