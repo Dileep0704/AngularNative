@@ -14,6 +14,12 @@
 </FlexboxLayout> -->
 
 <!-- Restaurant Menu App - Marketplace - https://play.nativescript.org/?template=play-ng&id=DVxbTC&v=12 -->
+<ActionBar class="action-bar">
+  <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <ActionItem icon="res://navigation/menu" android:visibility="collapsed" ios.position="left">
+  </ActionItem>
+  <Label class="action-bar-title" text="Detail"></Label>
+</ActionBar>
 <StackLayout class="main" verticalAlignment="top">
 
   <GridLayout class="anim-cover" rows="auto" columns="*">
