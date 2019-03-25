@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit, DoCheck {
     }
 
   ngOnInit() {
-    this.menuService.restaurantCatalog.pipe(skip(1)).subscribe((menu: Product[])=> {
+    this.menuService.restaurantCatalog.subscribe((menu: Product[])=> {
       this.restaurantCatalog = menu
     })
   }
