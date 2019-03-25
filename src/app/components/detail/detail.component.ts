@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MenuService } from '../../shared/menu/menu.service';
 import { getRootView } from "tns-core-modules/application";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: 'app-detail',
@@ -16,6 +17,7 @@ export class DetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private menuService: MenuService,
+    private routerExtensions: RouterExtensions
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class DetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.menuService.getItemDetails(id)
       .subscribe(item => this.item = item);
+  }
+
+  onCloseTap(): void {
+    this.routerExtensions.back();
   }
 
 }

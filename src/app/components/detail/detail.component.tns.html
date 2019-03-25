@@ -1,14 +1,4 @@
-<!-- <GridLayout class="container">
-  <StackLayout *ngIf="item">
-    <Label class="main-name" [text]="item.name"></Label>
-
-    <GridLayout class="grid" rows="auto auto" columns="auto, *">
-      <Label row="0" col="0" class="circle" [text]="item.id"></Label>
-      <TextField class="name" row="0" col="1" [(ngModel)]="item.name" hint="name"></TextField>
-    </GridLayout>
-  </StackLayout>
-</GridLayout> -->
-<ActionBar class="action-bar">
+<!-- <ActionBar class="action-bar">
   <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
   <ActionItem icon="res://navigation/menu" android:visibility="collapsed"
       ios.position="left">
@@ -21,4 +11,90 @@
     <TextField [text]="item.cost"></TextField>
     <TextField [text]="item.mealType"></TextField>
   </StackLayout>
-</FlexboxLayout>
+</FlexboxLayout> -->
+
+
+<StackLayout class="main" verticalAlignment="top">
+
+  <GridLayout class="anim-cover" rows="auto" columns="*">
+    <Image row="0" col="0" marginTop="-40" height="180" stretch="aspectFill" class="card-img" src="~/assets/burger.jpg"></Image>
+    <Label row="0" col="0" verticalAlignment="top" horizontalAlignment="left" (tap)="onCloseTap()" fontSize="24" text="&#xf060;"
+      class="fas close">
+    </Label>
+  </GridLayout>
+
+  <ScrollView class="anim-images" orientation="horizontal">
+    <StackLayout orientation="horizontal" class="">
+      <GridLayout *ngFor="let imageString of item.images" rows="auto" columns="*">
+        <Image class="card-img-thumb" row="0" col="0" [src]="imageString" stretch="aspectFill"></Image>
+      </GridLayout>
+    </StackLayout>
+  </ScrollView>
+
+  <GridLayout rows="auto,auto,auto,auto" columns="auto" class="content">
+
+    <GridLayout *ngIf="item" class="anim-itemInfo" marginTop="15" row="1" width="100%" columns="auto,*" rows="auto,auto,auto,auto"
+      verticalAlignment="center">
+      <Label text="categoryIcon" row="0" col="0" rowSpan="2" backgroundColor="orange" class="fas category-icon"></Label>
+      <Label row="0" col="1" class="item-name" textwrap="true" verticalAlignment="bottom" horizontalAlignment="left" [text]="item.name"></Label>
+
+      <Label row="1" col="1" class="item-category" textwrap="true" verticalAlignment="top" horizontalAlignment="left" [text]="item.category"></Label>
+      <Label row="2" col="1" class="item-category" [text]="'Average Rate:' + item.cost "></Label>
+
+
+      <StackLayout row="3" col="1" orientation="horizontal">
+        <Label class="fas rate" text="&#xf005;"></Label>
+        <Label class="fas rate" text="&#xf005;"></Label>
+        <Label class="fas rate" text="&#xf005;"></Label>
+        <Label class="fas rate" text="&#xf005;"></Label>
+        <Label class="fas rate" text="&#xf123;"></Label>
+      </StackLayout>
+
+
+    </GridLayout>
+
+    <StackLayout class="line anim-likes" row="2" width="100%" marginTop="10"></StackLayout>
+
+    <GridLayout *ngIf="item" columns="auto,*,auto,auto" rows="auto" marginTop="5" width="100%" row="3" class="anim-likes">
+      <GridLayout col="0" rows="auto" columns="auto,auto" (tap)="toggleLike(item)">
+        <Label col="0" row="0" #like [class]="item.isLike ? 'fas like-icon liked-active' : 'fas like-icon default'" [text]="item.isLike ? '&#xf164;':'&#xf087;'"></Label>
+        <Label col="1" row="0" class="layout" [text]="item.cost"></Label>
+      </GridLayout>
+      <StackLayout col="1" orientation="horizontal" marginLeft="15">
+        <Label ref="" class="like-icon layout fas" text="&#xf0e5;"></Label>
+        <Label class="layout" [text]="item.name"></Label>
+      </StackLayout>
+      <GridLayout col="2" rows="auto" columns="auto,auto" (tap)="toggleHeart(item)" marginRight="15">
+        <Label col="0" row="0" #favorite [class]="item.isFavorite ? 'like-icon fas heart-active' : 'like-icon fas default'" [text]="item.isFavorite ? '&#xf004;':'&#xf08a;'"></Label>
+        <Label col="1" row="0" class="layout" text="Favorite"></Label>
+      </GridLayout>
+      <StackLayout col="3" orientation="horizontal">
+        <Label ref="" class="like-icon layout fas" text="&#xf045;"></Label>
+        <Label class="layout" text="Share"></Label>
+      </StackLayout>
+
+    </GridLayout>
+  </GridLayout>
+
+  <StackLayout width="100%" class="lineBreak anim-likes"></StackLayout>
+
+  <Gridlayout rows="auto,*" class="content anim-content" marginTop="15">
+
+    <GridLayout row="0" rows="auto" marginBottom="5" columns="auto, auto">
+      <Label col="0" text="&#xf02c;" class="fas description-icon" textWrap="true"></Label>
+      <Label col="1" class="description-text" text="Description" textWrap="true"></Label>
+    </GridLayout>
+
+    <StackLayout row="1">
+      <ScrollView>
+        <StackLayout verticalAlignment="top" horizontalAlignment="left" *ngIf="item">
+          <Textview editable="false" class="description-value" textWrap="true" [text]="item.name">
+          </Textview>
+        </StackLayout>
+      </ScrollView>
+    </StackLayout>
+
+
+  </Gridlayout>
+
+</StackLayout>
