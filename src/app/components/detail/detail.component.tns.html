@@ -68,7 +68,7 @@
       </GridLayout>
       <StackLayout col="1" orientation="horizontal" marginLeft="15">
         <Label ref="" class="like-icon layout fas" text="&#xf0e5;"></Label>
-        <Label class="layout" [text]="item.name"></Label>
+        <Label class="layout" [text]="item.cost"></Label>
       </StackLayout>
       <GridLayout col="2" rows="auto" columns="auto,auto" (tap)="toggleHeart(item)" marginRight="15">
         <Label col="0" row="0" #favorite [class]="item.isFavorite ? 'like-icon fas heart-active' : 'like-icon fas default'" [text]="item.isFavorite ? '&#xf004;':'&#xf08a;'"></Label>

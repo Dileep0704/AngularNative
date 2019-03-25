@@ -4,16 +4,46 @@
 <!-- Note that using the router-outlet means we cannot use the ActionBar widget. For iOS this means there will be no automatic native back button in it. On Android, the hardware back button won't back in your routes by default. It will close the app instead -->
 <!-- <router-outlet></router-outlet> -->
 
+<!-- Basic Usage of RadSideDrawer - Marketplace https://play.nativescript.org/?template=play-ng&id=QgoOAr&v=3 -->
 <RadSideDrawer #sideDrawer>
-  <StackLayout tkDrawerContent class="sidedrawer-left">
-    <StackLayout class="sidedrawer-header"></StackLayout>
-    <StackLayout class="sidedrawer-content">
-        <Button class="btn sidedrawer-list-item-text" text="Featured" (tap)="navigateToFeatured()"></Button>
-        <Button class="btn sidedrawer-list-item-text" text="Browse" (tap)="navigateToBrowse()"></Button>
-        <Button class="btn sidedrawer-list-item-text" text="Search" (tap)="navigateToSearch()"></Button>
-        <!-- <Button class="btn btn-primary sidedrawer-list-item-text" text="list" (tap)="navigateToList()"></Button> -->
+  <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+    <StackLayout row="0" class="sidedrawer-header">
+      <Label class="sidedrawer-header-image fas" text="&#xf2bd;"></Label>
+      <Label class="sidedrawer-header-brand" text="User Name"></Label>
+      <Label class="footnote" text="username@mail.com"></Label>
     </StackLayout>
-  </StackLayout>
 
-  <page-router-outlet tkMainContent></page-router-outlet>
+    <ScrollView row="1">
+      <StackLayout class="sidedrawer-content">
+        <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="navigateToFeatured()">
+          <Label col="0" text="&#xf015;" class="fas"></Label>
+          <Label col="1" text="Home" class="p-r-10"></Label>
+        </GridLayout>
+
+        <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="navigateToBrowse()">
+          <Label col="0" text="&#xf1ea;" class="fas"></Label>
+          <Label col="1" text="Browse" class="p-r-10"></Label>
+        </GridLayout>
+
+        <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="navigateToSearch()">
+          <Label col="0" text="&#xf002;" class="fas"></Label>
+          <Label col="1" text="Search" class="p-r-10"></Label>
+        </GridLayout>
+
+        <GridLayout columns="auto, *" class="sidedrawer-list-item">
+          <Label col="0" text="&#xf005;" class="fas"></Label>
+          <Label col="1" text="Featured" class="p-r-10"></Label>
+        </GridLayout>
+
+        <StackLayout class="hr-light"></StackLayout>
+
+        <GridLayout columns="auto, *" class="sidedrawer-list-item">
+          <Label col="0" text="&#xf013;" class="fas"></Label>
+          <Label col="1" text="Settings" class="p-r-10"></Label>
+        </GridLayout>
+      </StackLayout>
+    </ScrollView>
+  </GridLayout>
+
+  <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
 </RadSideDrawer>
