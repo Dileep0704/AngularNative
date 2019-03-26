@@ -1,1 +1,18 @@
 /* Add mobile styles for the component here.  */
+.product-icon {
+  width: 45;
+  height: 45;
+  margin-right: 15;
+}
+
+.product-title {
+  font-weight: 600;
+  margin-bottom: 5;
+  color: #000;
+  font-size: 15;
+}
+
+.pay-amount {
+  color: #8f91de;
+  font-size: 15;
+}

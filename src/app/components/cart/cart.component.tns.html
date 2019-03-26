@@ -7,20 +7,26 @@
 </ActionBar>
 
 <StackLayout class="sidedrawer-content">
+  <ListView [items]="itemsInCart | values" class="list-group" height="auto" >
+    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
 
-  <GridLayout class="sidedrawer-list-item" rows="*" columns="*, *">
+      <StackLayout nsRouterLink="/detail/{{item.itemId}}">
+        <GridLayout columns="auto, *, *, *, auto" rows="auto" width="100%" height="auto" class="owe-main-info" verticalAlignment="top">
+          <Image row="0" col="0" src="~/assets/food-and-beverage-category.png" class="product-icon"></Image>
+          <StackLayout row="0" col="1" orientation="vertical" class="menu-container">
+            <Label class="product-title" [text]="item.name"></Label>
+          </StackLayout>
+          <Label row="0" col="2" [text]="item.cost"></Label>
+          <Label row="0" col="3" [text]="item.numberInCart"></Label>
+          <Label row="0" col="4" [text]="item.numberInCart * item.cost" class="pay-amount"></Label>
+        </GridLayout>
+        <Label class="divider" text=""></Label>
+      </StackLayout>
+
+    </ng-template>
+  </ListView>
+  <GridLayout class="sidedrawer-list-item" rows="*" columns="*, auto">
     <Label row="0" col="0" text="Total"></Label>
     <Label row="0" col="1" [text]="cartPrice"></Label>
   </GridLayout>
-
-  <ListView [items]="itemsInCart | values" class="list-group">
-    <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-      <GridLayout columns="auto, *, *" class="p-15" style="background:white">
-        <Label col="0" [text]="item.name" nsRouterLink="/detail/{{item.itemId}}"></Label>
-        <Label col="1" [text]="item.cost" nsRouterLink="/detail/{{item.itemId}}"></Label>
-        <Label col="2" [text]="item.numberInCart" nsRouterLink="/detail/{{item.itemId}}"></Label>  
-      </GridLayout>
-    </ng-template>
-  </ListView>
-
 </StackLayout>
