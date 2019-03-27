@@ -31,7 +31,6 @@ export class CartComponent implements OnInit {
     this.cartPrice = 0
     Object.keys(this.itemsInCart).forEach(itemId => {
       this.cartPrice += this.itemsInCart[itemId].cost * this.itemsInCart[itemId].numberInCart
-      console.log(this.cartPrice)
     });
   }
 }

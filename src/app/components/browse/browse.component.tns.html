@@ -8,6 +8,10 @@
 
 <ScrollView class="page">
   <StackLayout class="home-panel">
+      <!-- https://play.nativescript.org/?template=play-ng&id=pmXu7c&v=15 -->
+      <Image *ngIf="selectedImg" class="image" src="{{selectedImg}}" stretch="aspectFill"></Image>
+      <Button class="m-b-10 m-t-10 t-20" row="1" text="Choose image to upload"
+      (tap)="onSelectImageTap($event)"></Button>
       <Button class="btn btn-primary" text="category" [nsRouterLink]="['/category']"></Button>
   </StackLayout>
 </ScrollView>
