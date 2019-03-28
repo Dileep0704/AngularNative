@@ -6,12 +6,48 @@
   <Label class="action-bar-title" text="Browse"></Label>
 </ActionBar>
 
-<ScrollView class="page">
-  <StackLayout class="home-panel">
+<!-- <ScrollView class="page">
+  <StackLayout class="home-panel"> -->
       <!-- https://play.nativescript.org/?template=play-ng&id=pmXu7c&v=15 -->
-      <Image *ngIf="selectedImg" class="image" src="{{selectedImg}}" stretch="aspectFill"></Image>
+      <!-- <Image *ngIf="selectedImg" class="image" src="{{selectedImg}}" stretch="aspectFill"></Image>
       <Button class="m-b-10 m-t-10 t-20" row="1" text="Choose image to upload"
       (tap)="onSelectImageTap($event)"></Button>
       <Button class="btn btn-primary" text="category" [nsRouterLink]="['/category']"></Button>
   </StackLayout>
+</ScrollView> -->
+
+<ScrollView class="page">
+  <StackLayout class="form">
+
+    <GridLayout rows="auto,auto,auto,auto,auto">
+      <StackLayout row="0" class="input-field">
+        <TextField class="input" hint="Name" [(ngModel)]="menuItem.name"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+
+      <StackLayout row="1" class="input-field">
+        <TextField class="input" hint="Category" [(ngModel)]="menuItem.category"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+
+      <StackLayout row="2" class="input-field">
+        <TextField class="input" hint="Cost" [(ngModel)]="menuItem.cost"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+
+      <StackLayout row="3" class="input-field">
+        <TextField class="input" hint="Description" [(ngModel)]="menuItem.description"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+
+      <StackLayout row="4" class="input-field">
+        <TextField class="input" hint="Meal Type" [(ngModel)]="menuItem.mealType"></TextField>
+        <StackLayout class="hr-light"></StackLayout>
+      </StackLayout>
+    </GridLayout>
+
+    <Button text="Select Image" (tap)="onSelectImageTap($event)" class="btn btn-primary m-t-20"></Button>
+    <Button text="create Item" (tap)="submit()" class="btn btn-primary m-t-20"></Button>
+  </StackLayout>
+
 </ScrollView>
