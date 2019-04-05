@@ -17,7 +17,7 @@
       <StackLayout class="sidedrawer-content">
         <GridLayout columns="auto, *" class="sidedrawer-list-item" 
           *ngIf="stateService.loggedInUser.role == stateService.roles.merchant" (tap)="navigateToProfile()">
-          <Label col="0" text="&#xf015;" class="fas"></Label>
+          <Label col="0" text="&#xf007;" class="fas"></Label>
           <Label col="1" text="Profile" class="p-r-10"></Label>
         </GridLayout>
 
@@ -26,9 +26,10 @@
           <Label col="1" text="Home" class="p-r-10"></Label>
         </GridLayout>
 
-        <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="navigateToBrowse()">
+        <GridLayout columns="auto, *" class="sidedrawer-list-item" 
+          *ngIf="stateService.loggedInUser.role == stateService.roles.merchant" (tap)="navigateToBrowse()">
           <Label col="0" text="&#xf1ea;" class="fas"></Label>
-          <Label col="1" text="Browse" class="p-r-10"></Label>
+          <Label col="1" text="Add Items" class="p-r-10"></Label>
         </GridLayout>
 
         <GridLayout columns="auto, *" class="sidedrawer-list-item" (tap)="navigateToSearch()">

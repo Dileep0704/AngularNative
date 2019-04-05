@@ -52,11 +52,15 @@ export class UserService {
     merchant.logo = this.convertImgToBase64(merchant.logo)
     this.http.post(AppConfig.baseUrl + "api/merchants/restaurants/create", merchant)
     .subscribe(() => {
-      this.alert("Item Created Successfully");
+      this.alert("Merchant Created Successfully");
     },
     error => {
-      this.alert("Unfortunately Item Didn't Created");
+      this.alert("Unfortunately Merchant Didn't updated");
     })
+  }
+
+  getMerchantDetails(merchantId :number) {
+    return this.http.get(AppConfig.baseUrl + `api/merchants/restaurants/get/${merchantId}`)
   }
 
   convertImgToBase64(filePath) {

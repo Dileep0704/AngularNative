@@ -22,6 +22,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.merchantProfile = new Merchant(this.stateService.loggedInUser.id);
+    this.userService.getMerchantDetails(this.stateService.loggedInUser.id)
+    .subscribe((merchant : Merchant) => {
+      //Update merchant if available
+      this.merchantProfile = merchant
+    })
   }
 
   onDrawerButtonTap(): void {

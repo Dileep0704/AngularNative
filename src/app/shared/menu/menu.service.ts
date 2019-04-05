@@ -22,8 +22,8 @@ export class MenuService {
   }
 
   getMenu(merchantId) {
-    merchantId=4
-    this.http.get(AppConfig.baseUrl + `/api/merchants/restaurants/${merchantId}/menu/`)
+    merchantId=6
+    this.http.get(AppConfig.baseUrl + `/api/merchants/restaurants/${merchantId}/menu/get`)
     .subscribe((menu: Product[]) => {
       this.menu = menu
       this.restaurantCatalog.next(menu);
