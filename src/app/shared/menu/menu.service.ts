@@ -21,9 +21,9 @@ export class MenuService {
     this.restaurantCatalog = new BehaviorSubject<Product[]>([]);
   }
 
-  getMenu(id) {
-    id=4
-    this.http.get(AppConfig.baseUrl + `api/merchants/${id}/menu/`)
+  getMenu(merchantId) {
+    merchantId=4
+    this.http.get(AppConfig.baseUrl + `/api/merchants/restaurants/${merchantId}/menu/`)
     .subscribe((menu: Product[]) => {
       this.menu = menu
       this.restaurantCatalog.next(menu);
@@ -39,11 +39,12 @@ export class MenuService {
   createMenuItem(menuItem :Product) {
     var merchantId = this.stateService.loggedInUser.id
     menuItem.imageUrl = this.convertImgToBase64(menuItem.imageUrl)
-    this.http.post(AppConfig.baseUrl + `api/merchants/${merchantId}/menu/create`,menuItem)
+    this.http.post(AppConfig.baseUrl + `/api/merchants/restaurants/${merchantId}/menu/create`,menuItem)
     .subscribe(() => {
       this.alert("Item Created Successfully");
     },
     error => {
+      console.log('HTTP Error', error)
       this.alert("Unfortunately Item Didn't Created");
     })
   }
