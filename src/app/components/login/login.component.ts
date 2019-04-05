@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.page.actionBarHidden = true;
     this.user = new User();
-    this.user.email = "dileep@gmail.com";
+    this.user.email = "dileepM@gmail.com";
     this.user.password = "password";
    }
 
@@ -64,8 +64,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.userService.login(this.user)
-      .subscribe((isValidUser) => {
+      .subscribe((isValidUser: User) => {
+        // ToDo: Change bit logic as we are getting user object now not boolean
         this.processing = false;
+        this.user.id = isValidUser.id
+        this.user.role = isValidUser.role
         isValidUser && this.stateService._loggedInUser.next(this.user)
         isValidUser && this.routerExtensions.navigate(["/featured"], { clearHistory: true });
         !isValidUser && this.alert("Not a valid user");

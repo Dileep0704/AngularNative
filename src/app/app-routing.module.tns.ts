@@ -13,6 +13,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { SearchComponent } from './components/search/search.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ProfileComponent } from './components/merchant/profile/profile.component';
 import { StateService } from './shared/state.service';
 import { AuthGuardService } from "./shared/auth-guard.service";
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "featured", component: FeaturedComponent, canActivate: [AuthGuardService] },
   { path: "item", component: ItemComponent },
+  { path: "merchantProfile", component: ProfileComponent },
   { path: "browse", component: BrowseComponent },
   { path: "category", component: CategoryComponent },
   { path: "search", component: SearchComponent },

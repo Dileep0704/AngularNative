@@ -10,10 +10,15 @@ export class StateService {
 
   _loggedInUser = new BehaviorSubject<User>(new User);
   loggedInUser: User;
+
+  roles = Object.freeze({
+    customer: 'user',
+    merchant: 'merchant'
+  })
+
   constructor() { 
     this._loggedInUser.subscribe(user => {
       this.loggedInUser = user
-      console.log("In state service: " + this.loggedInUser)
     })
   }
 

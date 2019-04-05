@@ -1,0 +1,43 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://icon" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed"
+        (tap)="onDrawerButtonTap()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Update Restaurant"></Label>
+  </ActionBar>
+  
+  <ScrollView class="page">
+    <StackLayout class="form">
+  
+      <GridLayout rows="auto,auto,auto,auto,auto">
+        <StackLayout row="0" class="input-field">
+          <TextField class="input" hint="Name" [(ngModel)]="merchantProfile.name"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+  
+        <StackLayout row="1" class="input-field">
+          <TextField class="input" hint="Location" [(ngModel)]="merchantProfile.location"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+  
+        <StackLayout row="2" class="input-field">
+          <TextField class="input" hint="Email" [(ngModel)]="merchantProfile.email"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+  
+        <StackLayout row="3" class="input-field">
+          <TextField class="input" hint="Phone" [(ngModel)]="merchantProfile.contact_number"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+  
+        <StackLayout row="4" class="input-field">
+          <TextField class="input" hint="Address" [(ngModel)]="merchantProfile.address"></TextField>
+          <StackLayout class="hr-light"></StackLayout>
+        </StackLayout>
+      </GridLayout>
+  
+      <Button text="Select Image" (tap)="onSelectImageTap($event)" class="btn btn-primary m-t-20"></Button>
+      <Button text="create Item" (tap)="submit()" class="btn btn-primary m-t-20"></Button>
+    </StackLayout>
+  
+  </ScrollView>

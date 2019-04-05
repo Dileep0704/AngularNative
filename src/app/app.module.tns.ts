@@ -26,6 +26,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ValuesPipe } from './shared/filter/value.pipe';
+import { ProfileComponent } from './components/merchant/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ValuesPipe } from './shared/filter/value.pipe';
     MenuComponent,
     DetailComponent,
     CartComponent,
-    ValuesPipe
+    ValuesPipe,
+    ProfileComponent
   ],
   imports: [
     NativeScriptModule,

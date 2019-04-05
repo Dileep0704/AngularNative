@@ -17,6 +17,11 @@ export class AppComponent {
       this.stateService = stateService
     }
 
+  navigateToProfile(): void {
+    this.routerExtensions.navigate(["/merchantProfile"], { clearHistory: true });
+    this.sideDrawerComponent.sideDrawer.closeDrawer();
+  }  
+
   navigateToFeatured(): void {
     this.routerExtensions.navigate(["/featured"], { clearHistory: true });
     this.sideDrawerComponent.sideDrawer.closeDrawer();

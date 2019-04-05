@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ImageSource, fromFile } from "tns-core-modules/image-source";
 import { alert } from "tns-core-modules/ui/dialogs";
+import { StateService } from '../../shared/state.service';
 import { ScannerConfig } from "../scanner/scanner.config";
 import { Product } from '../../model/product.model';
 
@@ -15,12 +16,13 @@ export class MenuService {
 
   menu: Product[];
   restaurantCatalog: BehaviorSubject<Product[]>;
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,
+    private stateService: StateService) { 
     this.restaurantCatalog = new BehaviorSubject<Product[]>([]);
   }
 
   getMenu(id) {
-    id=2
+    id=4
     this.http.get(AppConfig.baseUrl + `api/merchants/${id}/menu/`)
     .subscribe((menu: Product[]) => {
       this.menu = menu
@@ -35,9 +37,9 @@ export class MenuService {
   }
 
   createMenuItem(menuItem :Product) {
-    var id=2
+    var merchantId = this.stateService.loggedInUser.id
     menuItem.imageUrl = this.convertImgToBase64(menuItem.imageUrl)
-    this.http.post(AppConfig.baseUrl + `api/merchants/${id}/menu/create`,menuItem)
+    this.http.post(AppConfig.baseUrl + `api/merchants/${merchantId}/menu/create`,menuItem)
     .subscribe(() => {
       this.alert("Item Created Successfully");
     },

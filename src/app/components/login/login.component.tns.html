@@ -43,7 +43,7 @@
 
         <StackLayout row="3" *ngIf="!isLoggingIn" class="input-field">
           <Span [text]="Merchant"></Span>
-          <Switch ngChecked="isMerchant"></Switch>
+          <Switch [(ngModel)]="isMerchant" ngChecked="isMerchant"></Switch>
           <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 
