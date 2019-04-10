@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
     this.userService.getMerchantDetails(this.stateService.loggedInUser.id)
     .subscribe((merchant : Merchant) => {
       //Update merchant if available
-      this.merchantProfile = merchant
+      if(merchant != null) this.merchantProfile = merchant
     })
   }
 
