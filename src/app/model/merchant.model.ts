@@ -1,5 +1,5 @@
 export class Merchant {
-  merchant_id: number;
+  merchantId: number;
   name: string;
   location: string;
   email: string;
@@ -9,6 +9,6 @@ export class Merchant {
   logo: string;
 
   constructor(id:number) {
-    this.merchant_id = id
+    this.merchantId = id
   }
 }
